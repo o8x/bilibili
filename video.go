@@ -2,12 +2,13 @@ package bilibili
 
 import (
 	"encoding/json"
-	"github.com/go-resty/resty/v2"
-	"github.com/pkg/errors"
-	"github.com/tidwall/gjson"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/go-resty/resty/v2"
+	"github.com/pkg/errors"
+	"github.com/tidwall/gjson"
 )
 
 var regBv = regexp.MustCompile(`(?i)bv([\dA-Za-z]{10})`)
@@ -360,7 +361,7 @@ type VideoDetailInfo struct {
 		Follower     int  `json:"follower"`      // 粉丝数
 		LikeNum      int  `json:"like_num"`      // UP主获赞次数
 	} `json:"Card"`
-	Tags     []VideoTag  `json:"Tags"`    // 视频TAG信息
+	Tags     VideoTag    `json:"Tags"`    // 视频TAG信息
 	Reply    HotReply    `json:"Reply"`   // 视频热评信息
 	Related  []VideoInfo `json:"Related"` // 推荐视频信息
 	HotShare struct {

@@ -1,13 +1,14 @@
 package bilibili
 
 import (
-	"github.com/go-resty/resty/v2"
-	"github.com/pkg/errors"
-	"github.com/tidwall/gjson"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/go-resty/resty/v2"
+	"github.com/pkg/errors"
+	"github.com/tidwall/gjson"
 )
 
 type Client struct {
@@ -19,10 +20,15 @@ type Client struct {
 
 // New 返回一个 bilibili.Client
 func New() *Client {
-	return &Client{timeout: 20 * time.Second}
+	return &Client{timeout: 5 * time.Second}
 }
 
 var std = New()
+var ProxyURL = ""
+
+func SetProxy(addr string) {
+	ProxyURL = addr
+}
 
 // GetTimeout 获取http请求超时时间，默认20秒
 func GetTimeout() time.Duration {
@@ -93,7 +99,12 @@ func (c *Client) SetCookies(cookies []*http.Cookie) {
 
 // 获取resty的一个request
 func (c *Client) resty() *resty.Client {
-	client := resty.New().SetTimeout(c.GetTimeout()).SetHeader("user-agent", "go")
+	r := resty.New()
+	if ProxyURL != "" {
+		r = r.SetProxy(ProxyURL)
+	}
+
+	client := r.SetTimeout(c.GetTimeout()).SetHeader("user-agent", "go")
 	if c.logger != nil {
 		client.SetLogger(c.logger)
 	}
