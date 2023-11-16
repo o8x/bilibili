@@ -7,11 +7,12 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"encoding/pem"
+	"strconv"
+
 	"github.com/Baozisoftware/qrcode-terminal-go"
 	"github.com/pkg/errors"
 	"github.com/skip2/go-qrcode"
 	"github.com/tidwall/gjson"
-	"strconv"
 )
 
 type CaptchaResult struct {

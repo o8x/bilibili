@@ -1,4 +1,4 @@
-module github.com/CuteReimu/bilibili
+module github.com/o8x/bilibili
 
 go 1.17
 

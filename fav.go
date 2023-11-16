@@ -2,9 +2,10 @@ package bilibili
 
 import (
 	"encoding/json"
-	"github.com/pkg/errors"
 	"strconv"
 	"strings"
+
+	"github.com/pkg/errors"
 )
 
 // AddFavourFolder 新建收藏夹

@@ -2,8 +2,9 @@ package bilibili
 
 import (
 	"encoding/json"
-	"github.com/pkg/errors"
 	"strconv"
+
+	"github.com/pkg/errors"
 )
 
 type OrderType string

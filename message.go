@@ -2,11 +2,12 @@ package bilibili
 
 import (
 	"encoding/json"
-	"github.com/pkg/errors"
-	"github.com/tidwall/gjson"
 	"math/rand"
 	"strconv"
 	"time"
+
+	"github.com/pkg/errors"
+	"github.com/tidwall/gjson"
 )
 
 type UnreadMessage struct {

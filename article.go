@@ -2,9 +2,10 @@ package bilibili
 
 import (
 	"encoding/json"
+	"strconv"
+
 	"github.com/pkg/errors"
 	"github.com/tidwall/gjson"
-	"strconv"
 )
 
 type Article struct {

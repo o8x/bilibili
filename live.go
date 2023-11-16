@@ -2,11 +2,12 @@ package bilibili
 
 import (
 	"encoding/json"
+	"regexp"
+	"strconv"
+
 	"github.com/go-resty/resty/v2"
 	"github.com/pkg/errors"
 	"github.com/tidwall/gjson"
-	"regexp"
-	"strconv"
 )
 
 var regLive = regexp.MustCompile(`^https://live.bilibili.com/(\d+)`)
